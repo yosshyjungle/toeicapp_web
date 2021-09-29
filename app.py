@@ -12,7 +12,7 @@ image = Image.open('toeic.png')
 st.image(image, use_column_width=True)
 
 st.header('英語が2秒間表示されます。その後日本語が1秒表示されて次の問題へ遷移します。')
-st.subheader('★問題はランダムに問出題されます★')
+st.subheader('問題はランダムに出題されます')
 
 
 st.sidebar.header('レベルに合わせて挑戦しよう！')
