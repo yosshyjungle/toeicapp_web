@@ -34,7 +34,7 @@ def start_english_words_test(problems):
         japanese = x[1]
         st.write("===========第{}問目===========".format(index + 1))
 
-        st.write(str(english))
+        st.subheader(str(english))
 #         engine = pyttsx3.init()
 #         voices = engine.getProperty('voices')
 #         engine.setProperty("voice",voices[1].id)
@@ -42,7 +42,7 @@ def start_english_words_test(problems):
 #         engine.runAndWait()
 
         time.sleep(2)
-        st.write(str(japanese))
+        st.subheader(str(japanese))
         time.sleep(1)
 
 
