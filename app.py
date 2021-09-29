@@ -42,7 +42,7 @@ def start_english_words_test(problems):
 #         engine.runAndWait()
 
         time.sleep(2)
-        st.subheader(str(japanese))
+        st.write(str(japanese))
         time.sleep(1)
 
 
