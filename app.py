@@ -3,7 +3,7 @@ from PIL import Image
 import random
 import time
 import webbrowser
-import pyttsx3
+# import pyttsx3
 
 st.title("TOEIC英単語学習アプリ")
 
@@ -11,12 +11,12 @@ st.title("TOEIC英単語学習アプリ")
 image = Image.open('toeic.png')
 st.image(image, use_column_width=True)
 
-st.header('英語が2秒間表示され、音声が流れます。その後日本語が1秒表示されて次の問題へ遷移します。')
+st.header('英語が2秒間表示されます。その後日本語が1秒表示されて次の問題へ遷移します。')
 st.subheader('★★問題はランダムに問出題されます★★')
 
 
 st.sidebar.header('レベルに合わせて挑戦しよう！')
-st.sidebar.subheader('ボタンをクリックすると音声も流れます。音声が不要な方はミュートにしておいてください。')
+# st.sidebar.subheader('ボタンをクリックすると音声も流れます。音声が不要な方はミュートにしておいてください。')
 def get_problems(num):
 
     with open(f"words{num}-1.txt", "r") as f:
@@ -35,13 +35,13 @@ def start_english_words_test(problems):
         st.write("===========第{}問目===========".format(index + 1))
 
         st.write(str(english))
-        engine = pyttsx3.init()
-        voices = engine.getProperty('voices')
-        engine.setProperty("voice",voices[1].id)
-        engine.say(english)
-        engine.runAndWait()
+#         engine = pyttsx3.init()
+#         voices = engine.getProperty('voices')
+#         engine.setProperty("voice",voices[1].id)
+#         engine.say(english)
+#         engine.runAndWait()
 
-        time.sleep(1)
+        time.sleep(2)
         st.write(str(japanese))
         time.sleep(1)
 
