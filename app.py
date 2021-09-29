@@ -19,7 +19,7 @@ st.sidebar.header('レベルに合わせて挑戦しよう！')
 st.sidebar.subheader('ボタンをクリックすると音声も流れます。音声が不要な方はミュートにしておいてください。')
 def get_problems(num):
 
-    with open(f"words{num}.txt", "r") as f:
+    with open(f"words{num}-1.txt", "r") as f:
         problems = f.readlines()
         # print(problems[0:10])
         problems = [x.strip() for x in problems]
