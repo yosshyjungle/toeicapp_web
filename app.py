@@ -70,9 +70,12 @@ if st.sidebar.button('TOEIC850'):
 st.sidebar.write('上級問題↑↑↑')
 
 
+def stopping():
+    return
+
 if st.sidebar.button('STOP'):
-    webbrowser.get()
-st.sidebar.write('※ページがリロードされます')
+    stopping()
+st.sidebar.write('ストップ↑↑↑')
 
 
 
