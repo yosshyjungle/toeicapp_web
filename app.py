@@ -3,7 +3,8 @@ from PIL import Image
 import random
 import time
 import webbrowser
-# import pyttsx3
+import pyttsx3
+
 
 st.title("TOEIC英単語学習アプリ")
 
@@ -11,15 +12,15 @@ st.title("TOEIC英単語学習アプリ")
 image = Image.open('toeic.png')
 st.image(image, use_column_width=True)
 
-st.header('英語が2秒間表示されます。その後日本語が1秒表示されて次の問題へ遷移します。')
-st.subheader('問題はランダムに出題されます')
+st.header('英語が2秒間表示され、音声が流れます。その後日本語が1秒表示されて次の問題へ遷移します。')
+st.subheader('★★問題はランダムに出題されます★★')
 
 
 st.sidebar.header('レベルに合わせて挑戦しよう！')
-# st.sidebar.subheader('ボタンをクリックすると音声も流れます。音声が不要な方はミュートにしておいてください。')
+st.sidebar.subheader('ボタンをクリックすると音声も流れます。音声が不要な方はミュートにしておいてください。')
 def get_problems(num):
 
-    with open(f"words{num}-1.txt", "r") as f:
+    with open(f"words{num}.txt", "r") as f:
         problems = f.readlines()
         # print(problems[0:10])
         problems = [x.strip() for x in problems]
@@ -32,16 +33,18 @@ def start_english_words_test(problems):
 
         english = x[0]
         japanese = x[1]
-        st.write("================第{}問目================".format(index + 1))
+        st.write("===================第{}問目===================".format(index + 1))
 
         st.subheader(str(english))
-#         engine = pyttsx3.init()
-#         voices = engine.getProperty('voices')
-#         engine.setProperty("voice",voices[1].id)
-#         engine.say(english)
-#         engine.runAndWait()
+        # st.audio(english)
+        engine = pyttsx3.init()
+        voices = engine.getProperty('voices')
+        engine.setProperty("voice",voices[1].id)
+        st.audio(engine.say(english))
 
-        time.sleep(2)
+        engine.runAndWait()
+
+        time.sleep(1)
         st.write(str(japanese))
         time.sleep(1)
 
@@ -70,6 +73,10 @@ if st.sidebar.button('TOEIC850'):
 st.sidebar.write('上級問題↑↑↑')
 
 
+# if st.sidebar.button('STOP'):
+#     webbrowser.get()
+# st.sidebar.write('※ページがリロードされます')
+
 def stopping():
     return
 
@@ -81,6 +88,8 @@ st.sidebar.write('ストップ↑↑↑')
 
 
 
+
 st.write('Copyright © 2021 Tomoyuki Yoshikawa. All Rights Reserved.')
+
 
 
